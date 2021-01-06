@@ -37,7 +37,15 @@ module.exports = function(app) {
         const note = req.body
         console.log(note)
         // read file
-
+        fs.readFile(path.join(__dirname, '../db/db.json'), (err, data) => {
+            console.log(err)
+            console.log('here we are')
+            // if (err) throw err;
+            console.log(data);
+            const parsedData = JSON.parse(data)
+            console.log(parsedData)
+            res.json(parsedData)
+        });
         // parse data
 
         // add note to array of objects
@@ -45,7 +53,7 @@ module.exports = function(app) {
         //write array o
 
         // send the data back
-        res.json(noteData)
+        res.end()
     })
     
 
