@@ -15,8 +15,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'))
 
 // handle user requests routes 
-require("./routes/apiroutes.js")(app);
-require("./routes/htmlroutes.js")(app);
+require("./routes/apiroutes")(app);
+require("./routes/htmlroutes")(app);
 
 
 // // Basic route that sends the user to Home page

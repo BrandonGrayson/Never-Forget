@@ -51,7 +51,7 @@ module.exports = function(app) {
             const parsedData = JSON.parse(data);
             parsedData.push(note)
             const newData = JSON.stringify(parsedData)
-            fs.writeFile(path.join(__dirname, '../db/db.json'), newData, 'utf-8',(err) => {
+            fs.writeFileSync(path.join(__dirname, '../db/db.json'), newData, 'utf-8',(err) => {
                 if (err) console.log('I am an error=======>', err)
                  console.log('Success')
              })
