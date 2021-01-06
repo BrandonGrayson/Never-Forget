@@ -12,17 +12,23 @@ module.exports = function(app) {
     // Below code handles when users "visit" a page.
     // In each of the below cases the user is shown an HTML page of content
     // ---------------------------------------------------------------------------
+    // get any notes inside active notes
+    app.get("/api/notes", function(req, res) {
+        console.log(activeNote)
+      res.json(activeNote)
+    });
+
+    // when a post request is made 
+    
   
-    app.get("/index", function(req, res) {
-      res.sendFile(path.join(__dirname, "../public/index.html"));
+    app.post("/api/notes", function(req, res) {
+        console.log(activeNote)
+        activeNote.push(req.body)
+    
     });
   
-    app.get("/notes", function(req, res) {
-      res.sendFile(path.join(__dirname, "../public/notes.html"));
-    });
-  
-    // If no matching route is found default to home
-    app.get("*", function(req, res) {
-      res.sendFile(path.join(__dirname, "../public/index.html"));
-    });
+    // // If no matching route is found default to home
+    // app.get("*", function(req, res) {
+    //   res.sendFile(path.join(__dirname, "../public/index.html"));
+    // });
   };
