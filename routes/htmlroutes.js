@@ -2,7 +2,7 @@
 // We need to include the path package to get the correct file path for our html
 // ===============================================================================
 var path = require("path");
-const noteData = require('../db/db.json')
+// const noteData = require('../db/db.json')
 
 // ===============================================================================
 // ROUTING

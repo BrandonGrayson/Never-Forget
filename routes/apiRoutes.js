@@ -27,7 +27,7 @@ module.exports = function(app) {
             const parsedData = JSON.parse(data)
             console.log(parsedData)
             res.json(parsedData)
-            res.end()
+            // res.end()
         });
         // res.json(noteData)
     });
@@ -36,17 +36,29 @@ module.exports = function(app) {
     app.post('/api/notes', function (req, res) {
         // take the response input and write to file
         const note = req.body
+        console.log('__dirname--> ', __dirname)
         console.log(note)
         // read file
-        // fs.readFile(path.join(__dirname, '../db/db.json'), (err, data) => {
+      
+       
+
+        fs.readFile(path.join(__dirname, '../db/db.json'), (err, data) => {
         //     console.log(err)
         //     console.log('here we are')
         //     // if (err) throw err;
-        //     console.log(data);
-        //     const parsedData = JSON.parse(data)
-        //     console.log(parsedData)
-        //     res.json(parsedData)
-        // });
+            console.log('readFile data--->', data)
+        
+            const parsedData = JSON.parse(data);
+            parsedData.push(note)
+            const newData = JSON.stringify(parsedData)
+            fs.writeFile(path.join(__dirname, '../db/db.json'), newData, 'utf-8',(err) => {
+                if (err) console.log('I am an error=======>', err)
+                 console.log('Success')
+             })
+            
+
+             res.json(parsedData)
+         });
         // parse data
 
         // add note to array of objects
@@ -54,7 +66,7 @@ module.exports = function(app) {
         //write array o
 
         // send the data back
-        res.end()
+        res.send(req.body)
     })
     
 
