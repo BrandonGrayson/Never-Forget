@@ -55,8 +55,6 @@ module.exports = function(app) {
                 if (err) console.log('I am an error=======>', err)
                  console.log('Success')
              })
-            
-
              res.json(parsedData)
          });
         // parse data
