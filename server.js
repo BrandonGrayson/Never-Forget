@@ -10,12 +10,12 @@ var app = express()
 var PORT = process.env.PORT || 3001;
 
 // Set up Express app to handle data parsing
-app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'))
 
 // handle user requests routes 
-// require("./routes/apiRoutes")(app);
+require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
 
 
