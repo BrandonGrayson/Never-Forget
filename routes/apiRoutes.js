@@ -1,13 +1,10 @@
 // DEPENDENCIES
 // We need to include the path package to get the correct file path for our html
 // ===============================================================================
-var path = require("path");
-var fs = require('fs')
+const path = require("path");
+const fs = require('fs')
 
-// path to noteData
-// const DATA_DIR = require('..')
-//const noteData = require('../db/db.json')
-// let noteData = 
+// file path
 
 // ===============================================================================
 // ROUTING
@@ -36,6 +33,18 @@ module.exports = function(app) {
 
     // when a post request is made write to db.json then resend data to user
     app.post('/api/notes', function (req, res) {
+        // take the response input and write to file
+        const note = req.body
+        console.log(note)
+        // read file
+
+        // parse data
+
+        // add note to array of objects
+
+        //write array o
+
+        // send the data back
         res.json(noteData)
     })
     

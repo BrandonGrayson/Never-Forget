@@ -37,3 +37,11 @@ require("./routes/htmlRoutes")(app);
 app.listen(PORT, function() {
     console.log("App listening on PORT " + PORT);
 });
+
+      // read file
+
+        // parse data
+
+        // add note to array of objects
+
+        //write array o
