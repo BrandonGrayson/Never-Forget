@@ -14,19 +14,26 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static('public'))
 
-// Basic route that sends the user to Home page
-app.get("/", function(req, res) {
-    res.sendFile(path.join(__dirname, "index.html"));
-});
+// handle user requests routes 
+// require("./routes/apiRoutes")(app);
+require("./routes/htmlRoutes")(app);
 
-// Route to send user to notes page
-app.get("/notes", function(req, res) {
-    res.sendFile(path.join(__dirname, "public/notes.html"));
-});
 
-// console.log(app)
+// // Basic route that sends the user to Home page
+// app.get("/", function(req, res) {
+//     res.sendFile(path.join(__dirname, "index.html"));
+// });
 
-// starts the server to begin listening
-app.listen(PORT, function() {
-    console.log("App listening on PORT " + PORT);
-});
+
+
+// // Route to send user to notes page
+// app.get("/notes", function(req, res) {
+//     res.sendFile(path.join(__dirname, "public/notes.html"));
+// });
+
+// // console.log(app)
+
+// // starts the server to begin listening
+// app.listen(PORT, function() {
+//     console.log("App listening on PORT " + PORT);
+// });
