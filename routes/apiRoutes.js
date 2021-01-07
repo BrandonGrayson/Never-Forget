@@ -39,15 +39,13 @@ module.exports = function(app) {
         console.log('__dirname--> ', __dirname)
         console.log(note)
         // read file
-      
-       
-
         fs.readFile(path.join(__dirname, '../db/db.json'), (err, data) => {
         //     console.log(err)
         //     console.log('here we are')
-        //     // if (err) throw err;
+            if (err) throw err;
             console.log('readFile data--->', data)
         
+            // parse data
             const parsedData = JSON.parse(data);
             parsedData.push(note)
             const newData = JSON.stringify(parsedData)
@@ -57,15 +55,15 @@ module.exports = function(app) {
              })
              res.json(parsedData)
          });
-        // parse data
-
-        // add note to array of objects
-
-        //write array o
-
-        // send the data back
         res.send(req.body)
     })
-    
 
+
+    app.delete("/api/notes/:id", (req, res) => {
+        // pull data off of param object
+        const { id } = req.params
+        res.send('Delete Request Called')
+    })
   };
+
+  
