@@ -15,7 +15,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'))
 
 // handle user requests routes 
-require("./routes/apiroutes")(app);
+require("./routes/apiRoutes")(app);
 require("./routes/htmlroutes")(app);
 
 

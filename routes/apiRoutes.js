@@ -61,7 +61,7 @@ module.exports = function(app) {
 
     app.delete("/api/notes/:id", (req, res) => {
         // pull data off of param object
-        const { id } = req.params
+        const deleteRequest = req.params
         res.send('Delete Request Called')
     })
   };
