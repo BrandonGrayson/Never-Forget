@@ -19,7 +19,18 @@ JQUERY
 
 
 ### How to use
-Arrive at the homepage:
+Run node.js server inside of server.js. Navigate to localhost:3001
+
+Homepage:
+
+
+
+Notes Page
+
+### Contributors
+Brandon Grayson
+
+
 
 
 
