@@ -58,8 +58,7 @@ module.exports = function(app) {
              console.log(`parsed data ------>`, parsedData)
              console.log(`parsed data ------>`, newData)
             res.json(newData)
-         });
-        res.json(req.body)
+        });
     })
 
 
