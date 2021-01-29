@@ -3,13 +3,14 @@
 // ===============================================================================
 const path = require("path");
 const fs = require('fs')
-
+const dbData = path.join(__dirname, '../db/db.json')
 // file path
 
 // ===============================================================================
 // ROUTING
 // ===============================================================================
 
+// loop through notes
 module.exports = function(app) {
     // HTML GET Requests
     // Below code handles when users "visit" a page.
@@ -47,23 +48,37 @@ module.exports = function(app) {
         
             // parse data
             const parsedData = JSON.parse(data);
-            parsedData.push(note)
+            parsedData.push(note) // for loop
             const newData = JSON.stringify(parsedData)
             fs.writeFileSync(path.join(__dirname, '../db/db.json'), newData, 'utf-8',(err) => {
                 if (err) console.log('I am an error=======>', err)
                  console.log('Success')
+
              })
-             res.json(parsedData)
+             console.log(`parsed data ------>`, parsedData)
+             console.log(`parsed data ------>`, newData)
+            res.json(newData)
          });
-        res.send(req.body)
+        res.json(req.body)
     })
 
 
-    app.delete("/api/notes/:id", (req, res) => {
-        // pull data off of param object
-        const deleteRequest = req.params
-        res.send('Delete Request Called')
-    })
+    // app.delete("/api/notes/:id", (req, res) => {
+    //     // pull data off of param object
+    //     const { id } = req.params
+
+    //     // read file parse data
+
+    //     // loop after files been read
+    //     for (let index = 0; dbData.length; index++) {
+    //         const note = array[index];
+    //         note.id = index
+    //         console.log(id)
+    //     }
+    //     // write to file the new file
+        
+    //     res.send('Delete Request Called')
+    // })
   };
 
   
